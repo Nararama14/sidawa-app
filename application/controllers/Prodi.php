@@ -1,34 +1,34 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Jenis extends CI_Controller
+class Prodi extends CI_Controller
 {
     function __construct()
     {
         parent::__construct();
-        $this->load->model('JenisModel');
+        $this->load->model('ProdiModel');
     }
 
     public function index()
     {
-        $data['title'] = "Halaman Jenis Beasiswa| SIDAWA-APP";
-        $data['Jenis'] = $this->JenisModel->get_jenis();
+        $data['title'] = "Halaman Program Studi Beasiswa| SIDAWA-APP";
+        $data['Prodi'] = $this->ProdiModel->get_prodi();
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
-        $this->load->view('jenis/jenis_read', $data);
+        $this->load->view('prodi/prodi_read', $data);
         $this->load->view('template/footer');
     }
 
     public function tambah()
     {
         if (isset($_POST['create'])){
-            $this->JenisModel->insert_jenis();
-            redirect('jenis');
+            $this->ProdiModel->insert_prodi();
+            redirect('prodi');
         } else {
-            $data['title'] = "Tambah Data Jenis Beasiswa | SIMDAWA-APP";
+            $data['title'] = "Tambah Data Program Studi Beasiswa | SIMDAWA-APP";
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
-            $this->load->view('jenis/jenis_create');
+            $this->load->view('prodi/prodi_create');
             $this->load->view('template/footer');
         }
     }
@@ -37,14 +37,14 @@ class Jenis extends CI_Controller
     public function ubah($id)
     {
         if (isset($_POST['update'])) {
-            $this->JenisModel->update_jenis();
-            redirect('jenis');
+            $this->ProdiModel->update_prodi();
+            redirect('prodi');
         } else {
-            $data['title'] = "Perbarui Data Jenis Beasiswa | SIMDAWA-APP";
-            $data['Jenis'] = $this->JenisModel->get_jenis_byid($id);
+            $data['title'] = "Perbarui Data Program Studi Beasiswa | SIMDAWA-APP";
+            $data['Prodi'] = $this->ProdiModel->get_prodi_byid($id);
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
-            $this->load->view('jenis/jenis_update', $data);
+            $this->load->view('prodi/prodi_update', $data);
             $this->load->view('template/footer');
         }
     }
@@ -52,8 +52,8 @@ class Jenis extends CI_Controller
     public function hapus($id)
     {
         if (isset($id)) {
-            $this->JenisModel->delete_jenis($id);
-            redirect('jenis');
+            $this->ProdiModel->delete_prodi($id);
+            redirect('prodi');
         }
     }
 }
