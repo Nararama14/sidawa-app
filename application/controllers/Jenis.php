@@ -21,7 +21,7 @@ class Jenis extends CI_Controller
 
     public function tambah()
     {
-        if (isset($_POST['create'])){
+        if (isset($_POST['create'])) {
             $this->JenisModel->insert_jenis();
             redirect('jenis');
         } else {

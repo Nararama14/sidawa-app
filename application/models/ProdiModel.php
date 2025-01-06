@@ -3,14 +3,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class ProdiModel extends CI_Model
 {
+    private $tabel = 'prodi';
 
-    private $table = 'prodi';
     public function get_prodi()
     {
-        return $this->db->get($this->table)->result();
+        return $this->db->get($this->tabel)->result();
+        //$this->db->query('SELECT * FROM prodi_beasiswa')->result();
     }
-
-
 
     public function insert_prodi()
     {
@@ -20,7 +19,6 @@ class ProdiModel extends CI_Model
 
         $this->db->insert($this->tabel, $data);
     }
-
 
     public function update_prodi()
     {
@@ -32,12 +30,10 @@ class ProdiModel extends CI_Model
         $this->db->update($this->tabel, $data);
     }
 
-
     public function get_prodi_byid($id)
     {
         return $this->db->get_where($this->tabel, ['id' => $id])->row();
     }
-
 
     public function delete_prodi($id)
     {

@@ -1,16 +1,19 @@
+<!--
+prodi_read.php
+-->
 
 <div class="dashboard-wrapper">
     <div class="container-fluid dashboard-content">
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-header">
-                    <h2 class="pageheader-title">Data Program Studi Beasiswa </h2>
+                    <h2 class="pageheader-title">Data Program Studi </h2>
                     <div class="page-breadcrumb">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="<?= base_url('home') ?>" class="breadcrumb-link">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="<?= base_url('prodi') ?>" class="breadcrumb-link">Program Studi Beasiswa</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Data Program Studi Beasiswa</li>
+                                <li class="breadcrumb-item"><a href="<?= base_url('prodi') ?>" class="breadcrumb-link">Program Studi</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Data Program Studi</li>
                             </ol>
                         </nav>
                     </div>
@@ -28,13 +31,13 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Program Studi Beasiswa</th>
+                                    <th>Nama Program Studi</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $no = 1;
-                                foreach ($Prodi as $a) {
+                                foreach ($prodi as $a) {
                                 ?>
                                     <tr>
                                         <td><?= $no++ ?></td>
