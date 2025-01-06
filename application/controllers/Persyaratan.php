@@ -3,38 +3,26 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Persyaratan extends CI_Controller
 {
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
         $this->load->model('PersyaratanModel');
     }
 
-    /**
-     * Menampilkan daftar persyaratan
-     */
     public function index()
     {
-        $data = [
-            'title'        => "Halaman Persyaratan | SIMDAWA-APP",
-            'persyaratan'  => $this->PersyaratanModel->get_all(),
-        ];
+        $data['title'] = "Halaman Persyaratan | SIMDAWA-APP";
+        $data['persyaratan'] = $this->PersyaratanModel->get_persyaratan();
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
         $this->load->view('persyaratan/persyaratan_read', $data);
         $this->load->view('template/footer');
     }
 
-    /**
-     * Menambah data persyaratan
-     */
     public function tambah()
     {
-        if ($this->input->post('create')) {
-            $data = [
-                'nama_persyaratan' => $this->input->post('nama_persyaratan', true),
-                'keterangan'       => $this->input->post('keterangan', true),
-            ];
-            $this->PersyaratanModel->insert($data);
+        if (isset($_POST['create'])) {
+            $this->PersyaratanModel->insert_persyaratan();
             redirect('persyaratan');
         } else {
             $data['title'] = "Tambah Data Persyaratan | SIMDAWA-APP";
@@ -45,25 +33,14 @@ class Persyaratan extends CI_Controller
         }
     }
 
-    /**
-     * Mengubah data persyaratan
-     *
-     * @param int $id
-     */
     public function ubah($id)
     {
-        if ($this->input->post('update')) {
-            $data = [
-                'nama_persyaratan' => $this->input->post('nama_persyaratan', true),
-                'keterangan'       => $this->input->post('keterangan', true),
-            ];
-            $this->PersyaratanModel->update($id, $data);
+        if (isset($_POST['update'])) {
+            $this->PersyaratanModel->update_persyaratan();
             redirect('persyaratan');
         } else {
-            $data = [
-                'title'       => "Perbarui Data Persyaratan | SIMDAWA-APP",
-                'persyaratan' => $this->PersyaratanModel->get_by_id($id),
-            ];
+            $data['title'] = "Perbaharui Data Persyaratan | SIMDAWA-APP";
+            $data['persyaratan'] = $this->PersyaratanModel->get_persyaratan_byid($id);
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('persyaratan/persyaratan_update', $data);
@@ -71,17 +48,11 @@ class Persyaratan extends CI_Controller
         }
     }
 
-    /**
-     * Menghapus data persyaratan
-     *
-     * @param int $id
-     */
     public function hapus($id)
     {
-        if ($this->PersyaratanModel->delete($id)) {
+        if (isset($id)) {
+            $this->PersyaratanModel->delete_persyaratan($id);
             redirect('persyaratan');
-        } else {
-            show_error("Gagal menghapus data dengan ID $id");
         }
     }
 }

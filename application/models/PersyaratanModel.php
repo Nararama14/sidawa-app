@@ -3,73 +3,42 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class PersyaratanModel extends CI_Model
 {
-    private $table = 'persyaratan';
+    private $tabel = 'persyaratan';
 
-    /**
-     * Fetch all records from the table
-     *
-     * @return array
-     */
-    public function get_all()
+    public function get_persyaratan()
     {
-        return $this->db->get($this->table)->result();
+        return $this->db->get($this->tabel)->result();
     }
 
-    /**
-     * Insert a new record into the table
-     *
-     * @param array $data
-     * @return bool
-     */
-    public function insert($data = null)
+    public function insert_persyaratan()
     {
-        if ($data === null) {
-            $data = [
-                'nama_persyaratan' => $this->input->post('nama_persyaratan', true),
-                'keterangan'       => $this->input->post('keterangan', true),
-            ];
-        }
-        return $this->db->insert($this->table, $data);
+        $data = [
+            'nama_persyaratan' => $this->input->post('nama_persyaratan'),
+            'keterangan' => $this->input->post('keterangan')
+        ];
+
+        $this->db->insert($this->tabel, $data);
     }
 
-    /**
-     * Get a single record by ID
-     *
-     * @param int $id
-     * @return object|null
-     */
-    public function get_by_id($id)
+    public function update_persyaratan()
     {
-        return $this->db->get_where($this->table, ['id' => $id])->row();
+        $data = [
+            'nama_persyaratan' => $this->input->post('nama_persyaratan'),
+            'keterangan' => $this->input->post('keterangan')
+        ];
+
+        $this->db->where('id', $this->input->post('id'));
+        $this->db->update($this->tabel, $data);
     }
 
-    /**
-     * Update a record by ID
-     *
-     * @param int   $id
-     * @param array $data
-     * @return bool
-     */
-    public function update($id, $data = null)
+    public function get_persyaratan_byid($id)
     {
-        if ($data === null) {
-            $data = [
-                'nama_persyaratan' => $this->input->post('nama_persyaratan', true),
-                'keterangan'       => $this->input->post('keterangan', true),
-            ];
-        }
+        return $this->db->get_where($this->tabel, ['id' => $id])->row();
+    }
+
+    public function delete_persyaratan($id)
+    {
         $this->db->where('id', $id);
-        return $this->db->update($this->table, $data);
-    }
-
-    /**
-     * Delete a record by ID
-     *
-     * @param int $id
-     * @return bool
-     */
-    public function delete($id)
-    {
-        return $this->db->delete($this->table, ['id' => $id]);
+        $this->db->delete($this->tabel);
     }
 }
