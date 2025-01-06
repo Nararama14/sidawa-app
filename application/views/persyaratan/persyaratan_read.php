@@ -1,30 +1,20 @@
-<!-- persyaratan_read.php -->
-
 <div class="dashboard-wrapper">
     <div class="container-fluid dashboard-content">
         <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="col-xl-12">
                 <div class="page-header">
                     <h2 class="pageheader-title">Data Persyaratan</h2>
-                    <div class="page-breadcrumb">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="<?= base_url('home') ?>" class="breadcrumb-link">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Persyaratan</li>
-                            </ol>
-                        </nav>
-                    </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="<?= base_url('persyaratan/tambah') ?>" class="btn btn-sm btn-success float-right"><i class="fas fa-plus"></i> Tambah Data</a>
+                        <a href="<?= base_url('persyaratan/create') ?>" class="btn btn-success btn-sm float-right"><i class="fas fa-plus"></i> Tambah Data</a>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered" id="myTable">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -34,15 +24,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no = 1; ?>
-                                <?php foreach ($persyaratan as $p) : ?>
+                                <?php $no = 1;
+                                foreach ($persyaratan as $p): ?>
                                     <tr>
-                                        <td><?= $no++; ?></td>
-                                        <td><?= $p->nama_persyaratan; ?></td>
-                                        <td><?= $p->keterangan; ?></td>
+                                        <td><?= $no++ ?></td>
+                                        <td><?= $p->nama_persyaratan ?></td>
+                                        <td><?= $p->keterangan ?></td>
                                         <td>
-                                            <a href="<?= base_url('persyaratan/ubah/' . $p->id) ?>" class="btn btn-sm btn-info"><i class="fas fa-edit"></i> Ubah</a>
-                                            <a href="<?= base_url('persyaratan/hapus/' . $p->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin menghapus data ini?')"><i class="fas fa-trash"></i> Hapus</a>
+                                            <a href="<?= base_url('persyaratan/update/' . $p->id) ?>" class="btn btn-info btn-sm">Ubah</a>
+                                            <a href="<?= base_url('persyaratan/delete/' . $p->id) ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">Hapus</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
