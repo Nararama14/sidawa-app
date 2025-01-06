@@ -50,5 +50,3 @@ jenis_update.php
         </div>
     </div>
 </div>
-
-<!--

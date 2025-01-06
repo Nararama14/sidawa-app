@@ -11,8 +11,8 @@ class Jenis extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Halaman Jenis Beasiswa| SIDAWA-APP";
-        $data['Jenis'] = $this->JenisModel->get_jenis();
+        $data['title'] = "Halaman Jenis Mahasiswa | SIMDAWA-APP";
+        $data['jenis'] = $this->JenisModel->get_jenis();
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
         $this->load->view('jenis/jenis_read', $data);
@@ -33,15 +33,14 @@ class Jenis extends CI_Controller
         }
     }
 
-
     public function ubah($id)
     {
         if (isset($_POST['update'])) {
             $this->JenisModel->update_jenis();
             redirect('jenis');
         } else {
-            $data['title'] = "Perbarui Data Jenis Beasiswa | SIMDAWA-APP";
-            $data['Jenis'] = $this->JenisModel->get_jenis_byid($id);
+            $data['title'] = "Perbaharui Data Jenis Beasiswa | SIMDAWA-APP";
+            $data['jenis'] = $this->JenisModel->get_jenis_byid($id);
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('jenis/jenis_update', $data);
