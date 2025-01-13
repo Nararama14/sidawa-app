@@ -1,7 +1,3 @@
-<!--
-beasiswa_read.php
--->
-
 <div class="dashboard-wrapper">
     <div class="container-fluid dashboard-content">
         <div class="row">
@@ -29,8 +25,6 @@ beasiswa_read.php
                     <div class="card-header">
                         Data Beasiswa
                         <a href="<?= base_url('beasiswa/tambah') ?>" class="btn btn-sm btn-success float-right"><i class="fas fa-plus">Tambah Data</i></a>
-
-
                         <a href="<?= base_url('beasiswa/cetak') ?>" class="btn btn-sm btn-info mr-1 float-right"><i class="fas fa-print">Cetak Data</i></a>
                     </div>
                     <div class="card-body">

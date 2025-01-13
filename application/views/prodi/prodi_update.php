@@ -1,7 +1,3 @@
-<!--
-prodi_update.php
--->
-
 <div class="dashboard-wrapper">
     <div class="container-fluid dashboard-content">
         <div class="row">
@@ -12,7 +8,7 @@ prodi_update.php
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="<?= base_url('home') ?>" class="breadcrumb-link">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="<?= base_url('prodi') ?>" class="breadcrumb-link">Nama Program Studi</a></li>
+                                <li class="breadcrumb-item"><a href="<?= base_url('prodi') ?>" class="breadcrumb-link">Program Studi</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Perbaharui Data</li>
                             </ol>
                         </nav>

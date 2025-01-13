@@ -1,7 +1,3 @@
-<!--
-prodi_create.php
--->
-
 <div class="dashboard-wrapper">
     <div class="container-fluid dashboard-content">
         <div class="row">

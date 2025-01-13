@@ -1,3 +1,5 @@
+// controller/Beasiswa.php
+
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -6,6 +8,7 @@ class Beasiswa extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        // $this->load->library('pdf');
         $this->load->model('BeasiswaModel');
         $this->load->model('JenisModel');
         // $this->load->model(array('BeasiswaModel','JenisModel'));
@@ -42,9 +45,9 @@ class Beasiswa extends CI_Controller
             $this->BeasiswaModel->update_beasiswa($id);
             redirect('beasiswa');
         } else {
-            $data['jenis'] = $this->JenisModel->get_jenis();
             $data['title'] = 'Ubah Data Beasiswa';
-            $data['beasiswa'] = $this->BeasiswaModel->get_beasiswa_by_id($id);
+            $data['beasiswa'] = $this->BeasiswaModel->get_beasiswa_byid($id);
+            $data['jenis'] = $this->JenisModel->get_jenis();
             $this->load->view('template/header', $data);
             $this->load->view('template/sidebar');
             $this->load->view('beasiswa/beasiswa_update', $data);

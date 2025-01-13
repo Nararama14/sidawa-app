@@ -1,10 +1,6 @@
-<!--
-header.php
--->
- 
 <!doctype html>
 <html lang="en">
- 
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -16,7 +12,7 @@ header.php
     <link rel="stylesheet" href="<?= base_url('assets/libs/css/style.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/vendor/fonts/fontawesome/css/fontawesome-all.css') ?>">
 </head>
- 
+
 <body>
     <!-- ============================================================== -->
     <!-- main wrapper -->

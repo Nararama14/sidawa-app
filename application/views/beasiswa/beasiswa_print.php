@@ -1,4 +1,3 @@
- 
 <?php
 $pdf = new FPDF("P", "cm", "A4");
 $pdf->AddPage();
@@ -25,8 +24,7 @@ foreach ($beasiswa as $a) {
     $pdf->Cell(1, 1, $no++, 1, 0, "C");
     $pdf->Cell(6, 1, $a->nama_beasiswa, 1, 0, "C");
     $pdf->Cell(4, 1, $a->tanggal_mulai, 1, 0, "C");
-    $pdf->Cell(4, 1, $a->tanggal_mulai, 1, 0, "C");
+    $pdf->Cell(4, 1, $a->tanggal_selesai, 1, 0, "C");
     $pdf->Cell(4, 1, $a->nama_jenis, 1, 1, "C");
 }
 $pdf->Output("I", "Laporan Data Beasiswa.pdf");
-?>

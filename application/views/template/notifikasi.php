@@ -1,7 +1,3 @@
-<!--
-notifikasi.php
--->
-
 <?php
 if ($this->session->flashdata('pesan') != '') {
     if ($this->session->flashdata('status') == true) {

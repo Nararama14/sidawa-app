@@ -1,7 +1,3 @@
-<!--
-beasiswa_update.php
--->
-
 <div class="dashboard-wrapper">
     <div class="container-fluid dashboard-content">
         <div class="row">

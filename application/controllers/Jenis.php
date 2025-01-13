@@ -11,7 +11,7 @@ class Jenis extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Halaman Jenis Mahasiswa | SIMDAWA-APP";
+        $data['title'] = "Halaman Jenis Beasiswa | SIMDAWA-APP";
         $data['jenis'] = $this->JenisModel->get_jenis();
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar');

@@ -1,7 +1,3 @@
-<!--
-footer.php
--->
- 
 </div>
 <!-- ============================================================== -->
 <!-- end main wrapper -->
@@ -12,6 +8,5 @@ footer.php
 <script src="<?= base_url("assets/vendor/slimscroll/jquery.slimscroll.js") ?>"></script>
 <script src="<?= base_url("assets/libs/js/main-js.js") ?>"></script>
 </body>
- 
+
 </html>
- 

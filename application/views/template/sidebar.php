@@ -1,7 +1,3 @@
-<!--
-sidebar.php
--->
- 
 <div class="nav-left-sidebar sidebar-dark">
     <div class="menu-list">
         <nav class="navbar navbar-expand-lg navbar-light">

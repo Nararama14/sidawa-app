@@ -11,7 +11,7 @@ class Persyaratan extends CI_Controller
 
     public function index()
     {
-        $data['title'] = "Halaman Persyaratan | SIMDAWA-APP";
+        $data['title'] = "Data Persyaratan | SIMDAWA-APP";
         $data['persyaratan'] = $this->PersyaratanModel->get_persyaratan();
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar');
