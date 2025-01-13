@@ -12,6 +12,13 @@ class PendaftaranModel extends CI_Model
             return False;
         }
     }
+
+    public function get_pendaftaran()
+    {
+        return $this->db->get($this->tabel)->result();
+        //$this->db->query('SELECT * FROM jenis_beasiswa')->result();
+    }
+
     public function upload_bukti($file)
     {
         $config['upload_path'] = './upload/bukti_daftar/'; //pengaturan letak file yang diupload
@@ -45,6 +52,18 @@ class PendaftaranModel extends CI_Model
             $this->session->set_flashdata("status", False);
         }
     }
+    public function verifikasi_akun($status, $id)
+    {
+        $this->db->update($this->tabel, ['keterangan' => $status], ['id' => $id]);
+        if ($this->db->affected_rows() > 0) {
+            $this->session->set_flashdata("pesan", "Verifikasi akun berhasil");
+            $this->session->set_flashdata("status", True);
+        } else {
+            $this->session->set_flashdata("pesan", "Verifikasi akun gagal!");
+            $this->session->set_flashdata("status", False);
+        }
+    }
+
     public function insert_pengguna($id)
     {
         $data = [

@@ -9,8 +9,12 @@ class Pendaftaran extends CI_Controller
     }
     public function index()
     {
-        //menampilkan data pendaftaran
-        //untuk sementara kita kosongkan dulu, karena fokus ke proses pendaftaran
+        $data['title'] = "Data Beasiswa | SIMDAWA-APP";
+        $data['pendaftaran'] = $this->PendaftaranModel->get_pendaftaran();
+        $this->load->view('template/header', $data);
+        $this->load->view('template/sidebar');
+        $this->load->view('pendaftaran/pendaftaran_read', $data);
+        $this->load->view('template/footer');
     }
     public function daftar()
     {
@@ -47,6 +51,15 @@ class Pendaftaran extends CI_Controller
         } else {
             $data['title'] = "Pendaftaran Pengguna | SIMDAWA-APP";
             $this->load->view('pendaftaran/daftar_create', $data);
+        }
+    }
+    
+    public function verifikasi($keterangan, $id)
+    {
+        if (isset($id)) {
+            $status = ($keterangan == "acc") ? "Sudah Diverifikasi" : "Akun Dibatalkan";
+            $this->PendaftaranModel->verifikasi_akun($status, $id);
+            redirect('pendaftaran');
         }
     }
 }
